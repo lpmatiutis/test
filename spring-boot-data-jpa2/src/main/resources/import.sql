@@ -13,6 +13,7 @@ INSERT into clientes (id, nombre, apellido, email, create_at, foto) values(11, '
 INSERT into clientes (id, nombre, apellido, email, create_at, foto) values(12, 'otro', 'otro', 'otro@gmail.com', '2017-08-28', '');
 
 
+
 INSERT INTO productos (nombre, precio, create_at) VALUES('Panasonic Pantalla LCD', 259990, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Camara Digital', 123490, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Apple iPod shuffle', 1499990, NOW());
