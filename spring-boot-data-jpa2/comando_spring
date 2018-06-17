@@ -1,0 +1,1 @@
+<img th:if="${#strings.length(cliente.foto) >0}"
