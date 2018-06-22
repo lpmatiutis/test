@@ -2,6 +2,7 @@ package com.example.demo.models.service;
 
 import java.util.List;
 
+import org.hibernate.type.TrueFalseType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,14 +48,14 @@ public class ClienteServiceImpl implements IClienteService {
 	@Transactional(readOnly = true)
 	public Cliente findOne(Long id) {
 		// TODO Auto-generated method stub
-		return clienteDao.findOne(id);
+		return clienteDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		clienteDao.delete(id);
+		clienteDao.deleteById(id);
 		
 	}
 
@@ -80,11 +81,40 @@ public class ClienteServiceImpl implements IClienteService {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly=true)
 	public Producto findProductoById(Long id) {
 		// TODO Auto-generated method stub
-		return productoDao.findOne(id);
+		return productoDao.findById(id).orElse(null);
 		
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Factura findFacturaById(Long id) {
+		// TODO Auto-generated method stub
+		
+		return facturaDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public void deleteFactura(Long id) {
+		// TODO Auto-generated method stub
+		facturaDao.deleteById(id); //facturaDao.deleteByid
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Factura fetchFacturaByIdWithClienteWhitItemFacturaWithProducto(Long id) {
+		// TODO Auto-generated method stub
+		return facturaDao.fetchByIdWithClienteWhitItemFacturaWithProducto(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Cliente fetchByIdWithFacturas(Long id) {
+		// TODO Auto-generated method stub
+		return clienteDao.fetchByIdWithFacturas(id);
 	}
 
 }

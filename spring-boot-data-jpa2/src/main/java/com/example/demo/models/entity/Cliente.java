@@ -18,8 +18,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -102,5 +102,10 @@ public class Cliente implements Serializable{
 	private void addFactura(Factura factura) {
 		facturas.add(factura);
 	}
+	@Override
+	public String toString() {
+		return nombre + " " + apellido;
+	}
+	
 	
 }

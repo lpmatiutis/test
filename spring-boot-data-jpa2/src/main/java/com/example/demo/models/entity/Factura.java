@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.aspectj.bridge.MessageWriter;
+import javax.validation.constraints.NotEmpty;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class Factura implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotEmpty
 	private String descripcion;
 	private String observacion;
 	@Temporal(TemporalType.DATE)
